@@ -22,7 +22,7 @@ def analizar_con_gemini(audio_path, api_key):
         audio_file = genai.get_file(audio_file.name)
         
     if audio_file.state.name == "FAILED":
-        raise ValueError("❌ El procesamiento del audio falló.")>
+        raise ValueError("❌ El procesamiento del audio falló.")
 
     # 2. El Prompt ajustado para trabajar solo con audio
     prompt = """
