@@ -1,4 +1,4 @@
-# Módulo que crea el PDF
+import os
 from fpdf import FPDF
 
 class PDFGuia(FPDF):
@@ -41,3 +41,4 @@ def generar_pdf(guia_completa, output_path):
             
     pdf.output(output_path)
     print(f"✨ PDF generado exitosamente en: {output_path}")
+
