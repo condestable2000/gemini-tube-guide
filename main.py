@@ -7,7 +7,6 @@ from src.analyzer import analizar_con_gemini
 from src.extractor import capturar_frames
 from src.generator import generar_pdf
 
-# Carga variables de entorno
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -16,7 +15,6 @@ def main():
         print("❌ Error: Falta GEMINI_API_KEY en .env")
         return
 
-    # Acepta URL como argumento o input
     if len(sys.argv) > 1:
         youtube_url = sys.argv[1]
     else:
@@ -26,17 +24,18 @@ def main():
     os.makedirs(base_output, exist_ok=True)
     
     try:
-        # 1. Descarga Inteligente (Audio + Muestreo de Imágenes)
-        video_path, audio_path, frames_folder = descargar_recursos(youtube_url, base_output)
+        # 1. Descarga (Ahora devuelve el Título también)
+        video_path, audio_path, frames_folder, video_title = descargar_recursos(youtube_url, base_output)
+        print(f"📘 Título detectado: {video_title}")
         
-        # 2. Análisis Senior con Gemini Flash Lite
+        # 2. Análisis IA
         guia_data = analizar_con_gemini(audio_path, frames_folder, API_KEY)
         
-        # 3. Extracción de Frames Finales (Alta Calidad)
+        # 3. Frames finales
         guia_con_fotos = capturar_frames(guia_data, video_path, base_output)
         
-        # 4. Generación del PDF
-        generar_pdf(guia_con_fotos, os.path.join(base_output, "Guia_Senior.pdf"))
+        # 4. Generar PDF (Pasando el título real)
+        generar_pdf(guia_con_fotos, os.path.join(base_output, "Guia_Senior.pdf"), video_title)
         
     except Exception as e:
         print(f"\n❌ Proceso fallido: {e}")
