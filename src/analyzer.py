@@ -10,7 +10,7 @@ def analizar_con_gemini(audio_path, api_key):
     genai.configure(api_key=api_key)
     
     # Usamos Flash 1.5, es muy estable y rápido para audio
-    model = genai.GenerativeModel(model_name="models/gemini-2.0-flash-lite-preview-02-05")
+    model = genai.GenerativeModel(model_name="models/gemini-2.5-flash-lite")
     
     # 1. Subir solo el audio
     print(f"📤 Subiendo audio a la nube...")
