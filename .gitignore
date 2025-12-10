@@ -1,0 +1,16 @@
+# No incluir credenciales ni archivos generados
+.env
+output/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.bak
+*.tmp
+# VS Code
+.vscode/
+# Docker
+*.log
+# Devcontainer
+.devcontainer/

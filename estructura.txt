@@ -1,0 +1,18 @@
+gemini-tube-guide/
+│
+├── .devcontainer/          
+│   ├── devcontainer.json   # Configuración de VS Code
+│   └── Dockerfile          # Instrucciones para instalar OS + FFmpeg
+│
+├── .env                  # Aquí pondrás tu API KEY
+├── requirements.txt      # Dependencias de Python
+├── main.py               # Archivo principal que ejecuta todo
+│
+├── src/
+│   ├── __init__.py
+│   ├── downloader.py     # Módulo para descargar de YouTube
+│   ├── analyzer.py       # Módulo que habla con Gemini
+│   ├── extractor.py      # Módulo que usa FFmpeg para sacar fotos
+│   └── generator.py      # Módulo que crea el PDF
+│
+└── output/               # (Se creará sola) Aquí se guardan los vídeos y el PDF
