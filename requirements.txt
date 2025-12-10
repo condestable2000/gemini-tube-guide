@@ -3,3 +3,4 @@ google-generativeai
 yt-dlp
 fpdf
 python-dotenv
+Pillow
