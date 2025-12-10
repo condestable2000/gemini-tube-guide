@@ -10,7 +10,7 @@ def analizar_con_gemini(audio_path, api_key):
     genai.configure(api_key=api_key)
     
     # Usamos Flash 1.5, es muy estable y rápido para audio
-    model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")
+    model = genai.GenerativeModel(model_name="models/gemini-2.0-flash-lite-preview-02-05")
     
     # 1. Subir solo el audio
     print(f"📤 Subiendo audio a la nube...")
@@ -22,7 +22,7 @@ def analizar_con_gemini(audio_path, api_key):
         audio_file = genai.get_file(audio_file.name)
         
     if audio_file.state.name == "FAILED":
-        raise ValueError("❌ El procesamiento del audio falló.")
+        raise ValueError("❌ El procesamiento del audio falló.")>
 
     # 2. El Prompt ajustado para trabajar solo con audio
     prompt = """
