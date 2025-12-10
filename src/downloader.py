@@ -45,7 +45,7 @@ def descargar_recursos(url, output_folder):
     duracion = obtener_duracion(video_path)
     
     # Queremos máximo detalle (1 foto cada 2s) pero con un tope de seguridad (150 fotos)
-    MAX_IMAGENES = 150 
+    MAX_IMAGENES = 700 
     INTERVALO_DESEADO = 2.0
     
     if (duracion / INTERVALO_DESEADO) > MAX_IMAGENES:
